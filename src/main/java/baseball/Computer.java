@@ -10,16 +10,21 @@ public class Computer {
     private static final int RANGE_END = 9;
     private static final String NOTHING = "낫싱";
     private static final String CORRECT_ANSWER = "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
-    private final List<Integer> computerNumbers;
+    private List<Integer> computerNumbers;
 
     public Computer() {
-        computerNumbers = new ArrayList<>();
-        while (computerNumbers.size() != 3) {
+    }
+
+    public void setComputerNumbers() {
+        List<Integer> numbers = new ArrayList<>();
+        while (numbers.size() != 3) {
             int randomNumber = Randoms.pickNumberInRange(RANGE_START, RANGE_END);
-            if (!computerNumbers.contains(randomNumber)) {
-                computerNumbers.add(randomNumber);
+            if (!numbers.contains(randomNumber)) {
+                numbers.add(randomNumber);
             }
         }
+        System.out.println("numbers = " + numbers);
+        computerNumbers = numbers;
     }
 
     public boolean isCorrectAnswer(List<Integer> userNumbers) {

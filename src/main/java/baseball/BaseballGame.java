@@ -15,6 +15,7 @@ public class BaseballGame {
         Computer computer = new Computer();
         User user = new User();
 
+        computer.setComputerNumbers();
         boolean onGame = true;
         while (onGame) {
             user.receiveThreeNumber();
@@ -22,12 +23,20 @@ public class BaseballGame {
             List<Integer> userNumbers = user.getInputNumber();
             onGame = !computer.isCorrectAnswer(userNumbers);
             user.resetUserNumber();
+
+            if (!onGame) {
+                computer.setComputerNumbers();
+
+                user.receiveOneNumber();
+                onGame = user.isRestart();
+                user.resetUserNumber();
+            }
         }
 
-        user.receiveOneNumber();
-        List<Integer> restartOrExit = user.getInputNumber();
-        if (restartOrExit.contains(RESTART_NUMBER)) {
-            startGame();
-        }
+//        user.receiveOneNumber();
+//        List<Integer> restartOrExit = user.getInputNumber();
+//        if (restartOrExit.contains(RESTART_NUMBER)) {
+//            startGame();
+//        }
     }
 }

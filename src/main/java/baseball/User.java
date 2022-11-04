@@ -8,6 +8,7 @@ public class User {
 
     private static final String RECEIVE_THREE_NUMBER_MESSAGE = "숫자를 입력해주세요 : ";
     private static final String RECEIVE_ONE_NUMBER_MESSAGE = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
+    private static final int RESTART_NUMBER = 1;
 
     private final List<Integer> inputNumber = new ArrayList<>();
 
@@ -38,6 +39,10 @@ public class User {
             throw new IllegalArgumentException();
         }
         setInputNumber(input);
+    }
+
+    public boolean isRestart() {
+        return inputNumber.contains(RESTART_NUMBER);
     }
 
     private boolean isValidateOneNumber(String input) {
