@@ -25,10 +25,11 @@ public class BaseballGame {
             user.resetUserNumber();
 
             if (!onGame) {
-                computer.setComputerNumbers();
-
                 user.receiveOneNumber();
                 onGame = user.isRestart();
+                if (onGame) {
+                    computer.setComputerNumbers();
+                }
                 user.resetUserNumber();
             }
         }

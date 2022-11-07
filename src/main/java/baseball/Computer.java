@@ -22,8 +22,10 @@ public class Computer {
             if (!numbers.contains(randomNumber)) {
                 numbers.add(randomNumber);
             }
+//            numbers.add(5);
+//            numbers.add(8);
+//            numbers.add(9);
         }
-        System.out.println("numbers = " + numbers);
         computerNumbers = numbers;
     }
 

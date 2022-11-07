@@ -59,7 +59,7 @@ public class User {
 
     private boolean isNumber(String input) {
         for (char ch : input.toCharArray()) {
-            if (ch < '1' || ch > '9') {
+            if (!(ch >= '1' && ch <= '9')) {
                 return false;
             }
         }
@@ -82,6 +82,7 @@ public class User {
     private void setInputNumber(String input) {
         int number = toInt(input);
         addEachOfDigit(number);
+        System.out.println("inputNumber = " + inputNumber);
     }
 
     private void addEachOfDigit(int number) {
